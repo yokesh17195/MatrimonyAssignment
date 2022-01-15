@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.sample.matrimony.data.entity.ProfileModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        app:cardElevation="@dimen/margin_20"
+        app:cardCornerRadius="@dimen/margin_20">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profilePic"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:loadImage="@{profile.profilePic.get(0)}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.7" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/verified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verified"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_20"
+                app:layout_constraintTop_toBottomOf="@+id/profilePic"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/premium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premium NRI"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_10"
+                app:layout_constraintTop_toBottomOf="@+id/profilePic"
+                app:layout_constraintStart_toEndOf="@+id/verified"/>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Priyanka"
+                android:text="@{profile.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_22"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_10"
+                app:layout_constraintTop_toBottomOf="@+id/verified"
+                android:layout_marginStart="@dimen/margin_20"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:text="Details"
+                android:bindDetails="@{profile}"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                android:layout_marginStart="@dimen/margin_20"
+                android:layout_marginEnd="@dimen/margin_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/yes" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shortlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shortlist"
+                android:textSize="10sp"
+                android:layout_marginStart="@dimen/margin_20"
+                app:layout_constraintTop_toTopOf="@+id/yes"
+                app:layout_constraintBottom_toBottomOf="@+id/yes"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/likeHer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Like Her?"
+                android:textSize="10sp"
+                app:layout_constraintTop_toTopOf="@+id/yes"
+                android:layout_marginRight="@dimen/margin_10"
+                app:layout_constraintBottom_toBottomOf="@+id/yes"
+                app:layout_constraintEnd_toStartOf="@+id/no"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/no"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_baseline_clear_24"
+                app:iconTint="@android:color/darker_gray"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_10"
+                app:strokeWidth="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@+id/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/yes"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/yes"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_baseline_check_24"
+                android:gravity="center"
+                android:backgroundTint="#E67E23"
+                android:textColor="@color/black"
+                app:cornerRadius="@dimen/margin_20"
+                android:layout_marginEnd="@dimen/margin_10"
+                app:layout_constraintTop_toBottomOf="@+id/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

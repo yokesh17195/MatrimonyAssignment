@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.sample.matrimony.data.entity.ProfileModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_10"
+        app:cardElevation="@dimen/margin_20"
+        app:cardCornerRadius="@dimen/margin_20">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profilePic"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:loadImage="@{profile.profilePic.get(0)}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.7" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Priyanka"
+                android:text="@{profile.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_22"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/profilePic"
+                android:layout_marginStart="@dimen/margin_20"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:text="Details"
+                android:bindDetails="@{profile}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                android:layout_marginStart="@dimen/margin_20"
+                android:layout_marginEnd="@dimen/margin_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/yes" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:backgroundTint="#E67E23"
+                app:cornerRadius="@dimen/margin_20"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_20"
+                app:layout_constraintTop_toBottomOf="@+id/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:backgroundTint="@android:color/white"
+                android:layout_marginStart="@dimen/margin_10"
+                android:textColor="@color/black"
+                app:strokeColor="@android:color/darker_gray"
+                app:cornerRadius="@dimen/margin_20"
+                android:layout_marginBottom="@dimen/margin_10"
+                app:strokeWidth="2dp"
+                app:layout_constraintStart_toEndOf="@+id/yes"
+                app:layout_constraintTop_toBottomOf="@+id/details"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
